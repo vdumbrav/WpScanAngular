@@ -1,0 +1,31 @@
+<app-nav>
+</app-nav>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <form class="example-form" [formGroup]="WpForm" (ngSubmit)="onWpSubmit()">
+        <md-input-container class="example-full-width">
+          <input mdInput placeholder="WP-url" formControlName="WP">
+        </md-input-container>
+        <button md-raised-button type="submit">GET </button>
+      </form>
+    </div>
+    <div class="col-sm-6">
+      Result:
+      <hr> Title: <span>{{title}} </span>
+      <br> Version: <a routerLink='/version/{{version | deletedots}}'><span>{{version}} </span></a>
+    </div>
+  </div>
+  <div class="row mt-30">
+    <div class="col-sm-6">
+      Plugin:
+      <br> name: <a routerLink='/plugin/{{name_plugin}}'><span>{{name_plugin}} </span></a>
+      <hr>
+    </div>
+    <div class="col-sm-6">
+      Theme:
+      <br> Name: <a routerLink='/theme/{{name_theme}}'><span>{{name_theme}} </span></a>
+      <hr>
+    </div>
+  </div>
+</div>
