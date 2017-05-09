@@ -2,7 +2,11 @@
 </app-nav>
 <div class="container" *ngIf="latest_version?.length > 0">
   Result:
-  <hr> Title: <span>{{title}} </span><br> Latest Version: <span>{{latest_version}} </span><br> Last Updated: <span>{{last_updated | date: 'medium'}}</span><br>  Popular: <span>{{popular}}</span>
+  <hr> Title: <span>{{title}} </span><br> Latest Version: <span>{{latest_version}} </span><br> Last Updated: <span>{{last_updated | date: 'medium'}}</span><br>  Popular: <span *ngIf="popular == false"><i class="zmdi zmdi-close"></i>
+</span>
+      <span *ngIf="popular == true"><i class="zmdi zmdi-check"></i>
+
+</span>
   <hr>
 </div>
   <h1 class="text-center">{{errorMsg}}</h1>
@@ -25,7 +29,7 @@
       <td>
         {{vulner.created_at | date}}</td>
       <td>
-        {{vulner.fixed_in | date}}</td>
+        {{vulner.fixed_in }}</td>
       <td>
         {{vulner.updated_at | date}}</td>
       <td>{{vulner.published_date | date}}</td>

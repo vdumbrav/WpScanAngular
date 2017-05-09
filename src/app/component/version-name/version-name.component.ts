@@ -4,20 +4,19 @@ import { WpvulndbService } from '../../services/wpvulndb.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-pluguin-name',
-  templateUrl: './pluguin-name.component.html',
-  styleUrls: ['./pluguin-name.component.css']
+  selector: 'app-version-name',
+  templateUrl: './version-name.component.html',
+  styleUrls: ['./version-name.component.css']
 })
-export class PluguinNameComponent implements OnInit {
+export class VersionNameComponent implements OnInit {
   errorMsg: any;
   resp: any;
-  latest_version: any;
-  popular: any;
-  last_updated: any;
+  release_date: any;
+  changelog_url: any;
   title: any;
   vulnerabilities: any;
-  plugin_name: string;
-  url: any[];
+  version_name: string;
+
   constructor(
     private wpvulndbService: WpvulndbService,
     private activatedRoute: ActivatedRoute,
@@ -25,21 +24,20 @@ export class PluguinNameComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.plugin_name = this.activatedRoute.snapshot.params['name'];
-    this.getPluguinName();
+    this.version_name = this.activatedRoute.snapshot.params['name'];
+    this.getVersionName();
   }
 
-  getPluguinName() {
-    this.wpvulndbService.getPluguin(this.plugin_name).subscribe(
+  getVersionName() {
+    this.wpvulndbService.getVersion(this.version_name).subscribe(
       response => {
         this.title = Object.keys(response);
-        this.latest_version = response[Object.keys(response)[0]].latest_version;
-        this.popular = response[Object.keys(response)[0]].popular;
-        this.last_updated = response[Object.keys(response)[0]].last_updated;
+        this.changelog_url = response[Object.keys(response)[0]].changelog_url;
+        this.release_date = response[Object.keys(response)[0]].release_date;
         this.vulnerabilities = response[Object.keys(response)[0]].vulnerabilities;
-        this.url = response[Object.keys(response)[0]].vulnerabilities.references.url;
+        console.log(response);
       },
-     error => {
+      error => {
         switch (error.status) {
           case 404: {
             this.errorMsg = 'Not found';

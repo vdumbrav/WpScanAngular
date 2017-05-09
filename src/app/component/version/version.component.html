@@ -2,22 +2,15 @@
 </app-nav>
 <div class="container">
   <div class="row">
-    <div class="col-sm-6">
-      <form class="example-form" [formGroup]="themeForm" (ngSubmit)="onThemeSubmit()">
-        <md-input-container class="example-full-width">
-          <input mdInput placeholder="Theme" formControlName="theme">
-        </md-input-container>
-        <button md-raised-button type="submit">GET THEME</button>
+    <div class="col-sm-12 m-15">
+      <form  class="example-form"  [formGroup]="versionForm" (ngSubmit)="onVersionubmit()">
+        <md-select placeholder="Select Version" formControlName="version" name="version">
+          <md-option *ngFor="let vers of version" [value]="vers.value">
+            {{vers.viewValue}}
+          </md-option>
+        </md-select>
+        <button md-raised-button type="submit">GET VERSION</button>
       </form>
-    </div>
-    <div class="col-sm-6" *ngIf="latest_version?.length > 0">
-      Result:
-      <hr> Title: <span>{{title}} </span><br> Latest Version: <span>{{latest_version}} </span><br> Last Updated: <span>{{last_updated | date: 'medium'}}</span><br>      Popular: <span *ngIf="popular == false"><i class="zmdi zmdi-close"></i>
-</span>
-      <span *ngIf="popular == true"><i class="zmdi zmdi-check"></i>
-
-</span>
-      <hr>
     </div>
   </div>
   <h1 class="text-center">{{errorMsg}}</h1>
@@ -30,7 +23,7 @@
         <th>VulnType</th>
         <th>Created At</th>
         <th>FixedIn</th>
-        <th>Updated_at</th>
+        <th>Updated At</th>
         <th>Published</th>
       </tr>
     </thead>

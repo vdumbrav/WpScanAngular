@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { MdInputModule } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { WpvulndbService } from '../../services/wpvulndb.service';
-import { Router, ActivatedRoute } from '@angular/router';
-
+import { version } from './version_value';
 @Component({
-  selector: 'app-pluguin-name',
-  templateUrl: './pluguin-name.component.html',
-  styleUrls: ['./pluguin-name.component.css']
+  selector: 'app-version',
+  templateUrl: './version.component.html',
+  styleUrls: ['./version.component.css']
 })
-export class PluguinNameComponent implements OnInit {
+export class VersionComponent implements OnInit {
+  versionForm: FormGroup;
   errorMsg: any;
   resp: any;
   latest_version: any;
@@ -16,30 +17,33 @@ export class PluguinNameComponent implements OnInit {
   last_updated: any;
   title: any;
   vulnerabilities: any;
-  plugin_name: string;
-  url: any[];
-  constructor(
-    private wpvulndbService: WpvulndbService,
-    private activatedRoute: ActivatedRoute,
+  version: any[];
 
+  constructor(private fb: FormBuilder,
+    private wpvulndbService: WpvulndbService
   ) { }
 
   ngOnInit() {
-    this.plugin_name = this.activatedRoute.snapshot.params['name'];
-    this.getPluguinName();
+    this.buildForm();
+    this.version = version;
   }
 
-  getPluguinName() {
-    this.wpvulndbService.getPluguin(this.plugin_name).subscribe(
+  buildForm() {
+    this.versionForm = this.fb.group({
+      version: ['']
+    });
+  }
+
+  onVersionubmit() {
+    this.wpvulndbService.getVersion(this.versionForm.value.version).subscribe(
       response => {
         this.title = Object.keys(response);
         this.latest_version = response[Object.keys(response)[0]].latest_version;
         this.popular = response[Object.keys(response)[0]].popular;
         this.last_updated = response[Object.keys(response)[0]].last_updated;
         this.vulnerabilities = response[Object.keys(response)[0]].vulnerabilities;
-        this.url = response[Object.keys(response)[0]].vulnerabilities.references.url;
       },
-     error => {
+      error => {
         switch (error.status) {
           case 404: {
             this.errorMsg = 'Not found';
@@ -52,5 +56,4 @@ export class PluguinNameComponent implements OnInit {
         }
       });
   }
-
 }

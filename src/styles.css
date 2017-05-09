@@ -1,1 +1,119 @@
 /* You can add global styles to this file, and also import other style files */
+
+button:focus {
+  outline: none;
+}
+
+span {
+  color: #666;
+}
+
+.zmdi-close:before,
+.zmdi-check:before {
+  color: red;
+  font-size: 25px;
+  position: absolute;
+  margin-top: -18px;
+  margin-left: 2px;
+}
+
+.zmdi-check:before {
+  color: green;
+}
+
+.md-preloader {
+  font-size: 0;
+  display: inline-block;
+  -webkit-animation: outer 6600ms linear infinite;
+  animation: outer 6600ms linear infinite;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+}
+
+.md-preloader svg {
+  -webkit-animation: inner 1320ms linear infinite;
+  animation: inner 1320ms linear infinite;
+}
+
+.md-preloader svg circle {
+  fill: none;
+  stroke: #448AFF;
+  stroke-linecap: square;
+  -webkit-animation: arc 1320ms cubic-bezier(0.8, 0, 0.4, 0.8) infinite;
+  animation: arc 1320ms cubic-bezier(0.8, 0, 0.4, 0.8) infinite;
+}
+
+@-webkit-keyframes outer {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes outer {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes inner {
+  0% {
+    -webkit-transform: rotate(-100.8deg);
+    transform: rotate(-100.8deg);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+}
+
+@keyframes inner {
+  0% {
+    -webkit-transform: rotate(-100.8deg);
+    transform: rotate(-100.8deg);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+}
+
+@-webkit-keyframes arc {
+  0% {
+    stroke-dasharray: 1 210.48670779px;
+    stroke-dashoffset: 0;
+  }
+  40% {
+    stroke-dasharray: 151.55042961px, 210.48670779px;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: 1 210.48670779px;
+    stroke-dashoffset: -151.55042961px;
+  }
+}
+
+@keyframes arc {
+  0% {
+    stroke-dasharray: 1 210.48670779px;
+    stroke-dashoffset: 0;
+  }
+  40% {
+    stroke-dasharray: 151.55042961px, 210.48670779px;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: 1 210.48670779px;
+    stroke-dashoffset: -151.55042961px;
+  }
+}
