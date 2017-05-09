@@ -4,35 +4,37 @@
   Result:
   <hr> Title: <span>{{title}} </span><br> Latest Version: <span>{{latest_version}} </span><br> Last Updated: <span>{{last_updated | date: 'medium'}}</span><br>  Popular: <span *ngIf="popular == false"><i class="zmdi zmdi-close"></i>
 </span>
-      <span *ngIf="popular == true"><i class="zmdi zmdi-check"></i>
+  <span *ngIf="popular == true"><i class="zmdi zmdi-check"></i>
 
 </span>
   <hr>
 </div>
-  <h1 class="text-center">{{errorMsg}}</h1>
+<h1 class="text-center">{{errorMsg}}</h1>
 <div class="container-fluid">
-<table *ngIf="vulnerabilities?.length > 0" class="table table-striped table-bordered" cellspacing="0" width="100%">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>VulnType</th>
-      <th>Created At</th>
-      <th>FixedIn</th>
-      <th>Updated_at</th>
-      <th>Published</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let vulner of vulnerabilities">
-      <td>{{vulner.title}}</td>
-      <td>{{vulner.vuln_type}}</td>
-      <td>
-        {{vulner.created_at | date}}</td>
-      <td>
-        {{vulner.fixed_in }}</td>
-      <td>
-        {{vulner.updated_at | date}}</td>
-      <td>{{vulner.published_date | date}}</td>
-  </tbody>
-</table>
+  <table *ngIf="vulnerabilities?.length > 0" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>VulnType</th>
+        <th>References</th>
+        <th>Created At</th>
+        <th>FixedIn</th>
+        <th>Updated_at</th>
+        <th>Published</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vulner of vulnerabilities">
+        <td>{{vulner.title}}</td>
+        <td>{{vulner.vuln_type}}</td>
+        <span class="span-td" *ngFor="let link of vulner.references.url"><a href="{{link}}"  target="_blank">link </a></span>
+        <td>
+          {{vulner.created_at | date}}</td>
+        <td>
+          {{vulner.fixed_in }}</td>
+        <td>
+          {{vulner.updated_at | date}}</td>
+        <td>{{vulner.published_date | date}}</td>
+    </tbody>
+  </table>
 </div>

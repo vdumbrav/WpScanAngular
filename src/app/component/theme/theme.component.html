@@ -28,6 +28,7 @@
       <tr>
         <th>Title</th>
         <th>VulnType</th>
+        <th>References</th>
         <th>Created At</th>
         <th>FixedIn</th>
         <th>Updated_at</th>
@@ -38,6 +39,7 @@
       <tr *ngFor="let vulner of vulnerabilities">
         <td>{{vulner.title}}</td>
         <td>{{vulner.vuln_type}}</td>
+        <span class="span-td" *ngFor="let link of vulner.references.url"><a href="{{link}}"  target="_blank">link </a></span>
         <td>
           {{vulner.created_at | date}}</td>
         <td>

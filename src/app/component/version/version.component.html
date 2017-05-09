@@ -2,8 +2,8 @@
 </app-nav>
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 m-15">
-      <form  class="example-form"  [formGroup]="versionForm" (ngSubmit)="onVersionubmit()">
+    <div class="col-sm-6  m-15">
+      <form class="example-form" [formGroup]="versionForm" (ngSubmit)="onVersionubmit()">
         <md-select placeholder="Select Version" formControlName="version" name="version">
           <md-option *ngFor="let vers of version" [value]="vers.value">
             {{vers.viewValue}}
@@ -11,6 +11,13 @@
         </md-select>
         <button md-raised-button type="submit">GET VERSION</button>
       </form>
+    </div>
+    <div class="col-sm-6  m-15 ">
+      <div *ngIf="vulnerabilities?.length > 0">
+        ChangeLog <span><a href="{{changelog_url}}">{{changelog_url}}</a></span>
+        <br> Release Date <span>{{release_date | date}}</span>
+        <hr>
+      </div>
     </div>
   </div>
   <h1 class="text-center">{{errorMsg}}</h1>
@@ -21,6 +28,7 @@
       <tr>
         <th>Title</th>
         <th>VulnType</th>
+        <th>References</th>
         <th>Created At</th>
         <th>FixedIn</th>
         <th>Updated At</th>
@@ -31,6 +39,8 @@
       <tr *ngFor="let vulner of vulnerabilities">
         <td>{{vulner.title}}</td>
         <td>{{vulner.vuln_type}}</td>
+        <span class="span-td" *ngFor="let link of vulner.references.url"><a href="{{link}}"  target="_blank">link </a></span>
+
         <td>
           {{vulner.created_at | date}}</td>
         <td>

@@ -17,7 +17,6 @@ export class PluguinNameComponent implements OnInit {
   title: any;
   vulnerabilities: any;
   plugin_name: string;
-  url: any[];
   constructor(
     private wpvulndbService: WpvulndbService,
     private activatedRoute: ActivatedRoute,
@@ -37,7 +36,7 @@ export class PluguinNameComponent implements OnInit {
         this.popular = response[Object.keys(response)[0]].popular;
         this.last_updated = response[Object.keys(response)[0]].last_updated;
         this.vulnerabilities = response[Object.keys(response)[0]].vulnerabilities;
-        this.url = response[Object.keys(response)[0]].vulnerabilities.references.url;
+        console.log(this.vulnerabilities);
       },
      error => {
         switch (error.status) {

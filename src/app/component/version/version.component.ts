@@ -18,6 +18,8 @@ export class VersionComponent implements OnInit {
   title: any;
   vulnerabilities: any;
   version: any[];
+  release_date: any;
+  changelog_url: any;
 
   constructor(private fb: FormBuilder,
     private wpvulndbService: WpvulndbService
@@ -37,10 +39,9 @@ export class VersionComponent implements OnInit {
   onVersionubmit() {
     this.wpvulndbService.getVersion(this.versionForm.value.version).subscribe(
       response => {
-        this.title = Object.keys(response);
-        this.latest_version = response[Object.keys(response)[0]].latest_version;
-        this.popular = response[Object.keys(response)[0]].popular;
-        this.last_updated = response[Object.keys(response)[0]].last_updated;
+this.title = Object.keys(response);
+        this.changelog_url = response[Object.keys(response)[0]].changelog_url;
+        this.release_date = response[Object.keys(response)[0]].release_date;
         this.vulnerabilities = response[Object.keys(response)[0]].vulnerabilities;
       },
       error => {
