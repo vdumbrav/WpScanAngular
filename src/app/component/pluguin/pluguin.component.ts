@@ -54,5 +54,4 @@ export class PluguinComponent implements OnInit {
         }
       });
   }
-
 }

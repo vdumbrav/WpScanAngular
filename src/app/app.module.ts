@@ -14,7 +14,6 @@ import { SiteWpComponent } from './component/site-wp/site-wp.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PluguinNameComponent } from './component/pluguin-name/pluguin-name.component';
 import { ThemeNameComponent } from './component/theme-name/theme-name.component';
-import { NgPipesModule } from 'ngx-pipes';
 import { DeletedotsPipe } from './pipes/deletedots.pipe';
 import { VersionComponent } from './component/version/version.component';
 import { VersionNameComponent } from './component/version-name/version-name.component';
@@ -52,7 +51,6 @@ const appRoutes: Routes = [
     VersionNameComponent
   ],
   imports: [
-    NgPipesModule,
     BrowserModule,
     FormsModule,
     HttpModule,

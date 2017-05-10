@@ -39,7 +39,7 @@ export class VersionComponent implements OnInit {
   onVersionubmit() {
     this.wpvulndbService.getVersion(this.versionForm.value.version).subscribe(
       response => {
-this.title = Object.keys(response);
+        this.title = Object.keys(response);
         this.changelog_url = response[Object.keys(response)[0]].changelog_url;
         this.release_date = response[Object.keys(response)[0]].release_date;
         this.vulnerabilities = response[Object.keys(response)[0]].vulnerabilities;

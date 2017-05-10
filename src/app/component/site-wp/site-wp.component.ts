@@ -54,5 +54,4 @@ export class SiteWpComponent implements OnInit {
         }
       });
   }
-
 }
