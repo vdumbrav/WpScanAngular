@@ -28,7 +28,7 @@ export class WpvulndbService {
   }
 
   getWP(wp_url) {
-    return this._http.get(`${wp_url}/wp-includes/`)
+    return this._http.get(wp_url)
       .map((response: Response) => response.text())
       .catch(this._errorHandler);
   }

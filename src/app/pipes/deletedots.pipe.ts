@@ -6,8 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DeletedotsPipe implements PipeTransform {
   transform(value: string, args: string[]): any {
     if (!value) return value;
-
-    return value.split('.').join('');
-
+    const val = value.split('.').join('');
+    return val.split('WordPress ').join('');
   }
 }

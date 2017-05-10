@@ -18,7 +18,6 @@ import { DeletedotsPipe } from './pipes/deletedots.pipe';
 import { VersionComponent } from './component/version/version.component';
 import { VersionNameComponent } from './component/version-name/version-name.component';
 
-
 const appRoutes: Routes = [
   {
     path: '',

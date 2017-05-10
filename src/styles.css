@@ -4,9 +4,6 @@ button:focus {
   outline: none;
 }
 
-span {
-  color: #666;
-}
 
 .zmdi-close:before,
 .zmdi-check:before {
@@ -16,9 +13,16 @@ span {
   margin-top: -18px;
   margin-left: 2px;
 }
- .span-td {
-padding: 25px 10px;
+
+.span-td {
+  padding: 0px 10px;
 }
+
+.span-td a {
+  top: 15px;
+  position: relative;
+}
+
 .zmdi-check:before {
   color: green;
 }

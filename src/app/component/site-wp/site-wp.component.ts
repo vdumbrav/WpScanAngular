@@ -11,8 +11,11 @@ import { WpvulndbService } from '../../services/wpvulndb.service';
 export class SiteWpComponent implements OnInit {
   WpForm: FormGroup;
   errorMsg: any;
-  resp: any;
+  themes: any;
+  plugins: any;
   version: any;
+  version_html: any;
+  title_html: any;
   title: any;
   name_plugin: any;
   name_theme: any;
@@ -23,10 +26,6 @@ export class SiteWpComponent implements OnInit {
 
   ngOnInit() {
     this.buildForm();
-    this.version = '4.3.3';
-    this.title = 'AOPA';
-    this.name_plugin = 'eshop';
-    this.name_theme = 'pagelines';
   }
 
   buildForm() {
@@ -38,8 +37,13 @@ export class SiteWpComponent implements OnInit {
   onWpSubmit() {
     this.wpvulndbService.getWP(this.WpForm.value.WP).subscribe(
       response => {
-        this.resp = response;
-        console.log(response);
+        this.title_html = response.match(/<title[^>]*>([^<]+)<\/title>/)[1];
+        this.version_html = response.match(/<meta.*name="generator".*content="(.*)".*\/>/)[1];
+        console.log(this.version_html);
+        const expression_theme = /http:\/\/[\w-]+(\.[\w-]+)\/wp-content\/themes\/+([\w.,@?^=%&amp;:\/~+#-]+[\w@?^=%&amp;\/~+#-])?/gi;
+        this.themes = response.match(expression_theme);
+        const expression_plugin = /http:\/\/[\w-]+(\.[\w-]+)\/wp-content\/plugins\/+([\w.,@?^=%&amp;:\/~+#-]+[\w@?^=%&amp;\/~+#-])?/gi;
+        this.plugins = response.match(expression_plugin);
       },
       error => {
         switch (error.status) {
