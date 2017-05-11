@@ -10,13 +10,14 @@
         <button md-raised-button type="submit">GET </button>
       </form>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-6" >
       Result:
       <hr> Title: <span>{{title_html}} </span>
       <br> Version: <a routerLink='/version/{{version_html | deletedots}}'><span>{{version_html}} </span></a>
     </div>
   </div>
   <div class="row mt-30">
+    <md-progress-bar mode="query" *ngIf="chklist?.length < 1"></md-progress-bar>
     <div class="col-sm-12">
       Check:
       <hr>
@@ -27,7 +28,7 @@
       </ul>
     </div>
   </div>
-  <div class="row mt-30">
+  <div class="row mt-30" >
     <div class="col-sm-6">
       Plugin:
       <hr>
