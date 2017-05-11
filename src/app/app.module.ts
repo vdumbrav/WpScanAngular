@@ -17,6 +17,7 @@ import { ThemeNameComponent } from './component/theme-name/theme-name.component'
 import { DeletedotsPipe } from './pipes/deletedots.pipe';
 import { VersionComponent } from './component/version/version.component';
 import { VersionNameComponent } from './component/version-name/version-name.component';
+import { RemoveurlPipe } from './pipes/removeurl.pipe';
 
 const appRoutes: Routes = [
   {
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     ThemeNameComponent,
     DeletedotsPipe,
     VersionComponent,
-    VersionNameComponent
+    VersionNameComponent,
+    RemoveurlPipe
   ],
   imports: [
     BrowserModule,

@@ -5,3 +5,19 @@
 a span {
   color: #0275d8;
 }
+
+.zmdi-alert-circle:before {
+  color: #b71c1c;
+}
+
+.zmdi-alert-triangle:before {
+  color: #FFCC00;
+}
+
+.zmdi-badge-check:before {
+  color: #558B2F;
+}
+
+.col-sm-12 ul {
+  list-style-type: none;
+}

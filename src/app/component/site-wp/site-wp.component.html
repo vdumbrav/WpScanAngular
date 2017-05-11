@@ -17,6 +17,17 @@
     </div>
   </div>
   <div class="row mt-30">
+    <div class="col-sm-12">
+      Check:
+      <hr>
+      <ul *ngFor="let chk of chklist">
+        <li *ngIf="chk[0] == 'ok'"> <i class="zmdi zmdi-badge-check"></i> {{chk[1]}}</li>
+        <li *ngIf="chk[0] == 'info'"> <i class="zmdi zmdi-alert-triangle"></i> {{chk[1] }}</li>
+        <li *ngIf="chk[0] == 'warn'"> <i class="zmdi zmdi-alert-circle"></i> {{chk[1] }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row mt-30">
     <div class="col-sm-6">
       Plugin:
       <hr>

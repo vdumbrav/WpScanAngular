@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -26,7 +26,14 @@ export class WpvulndbService {
       .map((response: Response) => response.json())
       .catch(this._errorHandler);
   }
-
+  checkURL(url) {
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    return this._http.post('http://localhost:3000/check', url, headers)
+      .map((response: Response) => response.json())
+      .catch(this._errorHandler);
+  }
   getWP(wp_url) {
     return this._http.get(wp_url)
       .map((response: Response) => response.text())
