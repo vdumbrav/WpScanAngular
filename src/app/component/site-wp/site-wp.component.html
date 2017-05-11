@@ -10,16 +10,16 @@
         <button md-raised-button type="submit">GET </button>
       </form>
     </div>
-    <div class="col-sm-6" >
-      Result:
+    <div class="col-sm-6" *ngIf="chklist">
+      <h4 class="text-center">Result:</h4>
       <hr> Title: <span>{{title_html}} </span>
       <br> Version: <a routerLink='/version/{{version_html | deletedots}}'><span>{{version_html}} </span></a>
     </div>
   </div>
+  <md-progress-bar [hidden]="hideElement" mode="query" *ngIf="chklist?.length < 1"></md-progress-bar>
   <div class="row mt-30">
-    <md-progress-bar mode="query" *ngIf="chklist?.length < 1"></md-progress-bar>
-    <div class="col-sm-12">
-      Check:
+    <div class="col-sm-12" *ngIf="chklist">
+      <h4 class="text-center">Check:</h4>
       <hr>
       <ul *ngFor="let chk of chklist">
         <li *ngIf="chk[0] == 'ok'"> <i class="zmdi zmdi-badge-check"></i> {{chk[1]}}</li>
@@ -28,16 +28,16 @@
       </ul>
     </div>
   </div>
-  <div class="row mt-30" >
+  <div class="row mt-30" *ngIf="chklist">
     <div class="col-sm-6">
-      Plugin:
+      <h4 class="text-center">Plugin:</h4>
       <hr>
       <ul *ngFor="let plugin of plugins">
         <li>{{plugin}}</li>
       </ul>
     </div>
     <div class="col-sm-6">
-      Theme:
+      <h4 class="text-center"> Theme:</h4>
       <hr>
       <ul *ngFor="let theme of themes">
         <li>{{theme}}</li>

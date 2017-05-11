@@ -21,3 +21,7 @@ a span {
 .col-sm-12 ul {
   list-style-type: none;
 }
+
+  .my-class {
+    background-color: yellow;
+  }
