@@ -50,13 +50,16 @@ export class SiteWpComponent implements OnInit {
     this.wpvulndbService.getWP(this.WpForm.value.WP).subscribe(
       response => {
         const doc = new DOMParser().parseFromString(response, 'text/xml');
+        console.log(response);
         const result_titile = doc.evaluate('//title', doc, null, XPathResult.STRING_TYPE, null);
-        this.title_html = result_titile.stringValue; // returns 'test'u
+        this.title_html = result_titile.stringValue;
         this.version_html = response.match(/<meta.*name="generator".*content="(.*)".*\/>/)[1];
-        const expression_theme = /http:\/\/[\w-]+(\.[\w-]+)\/wp-content\/themes\/+([\w.,@?^=%&amp;:\/~+#-]+[\w@?^=%&amp;\/~+#-])?/gi;
+        const expression_theme = /(https?:\/\/[\w-]+(\.[\w-]+)\/wp-content\/plugins\/)(\w*-?\w*-?\w*-?)/gi;
         this.themes = response.match(expression_theme);
-        const expression_plugin = /http:\/\/[\w-]+(\.[\w-]+)\/wp-content\/plugins\/+([\w.,@?^=%&amp;:\/~+#-]+[\w@?^=%&amp;\/~+#-])?/gi;
+        this.themes = this.themes.filter((v, i, a) => a.indexOf(v) === i);
+        const expression_plugin = /(https?:\/\/[\w-]+(\.[\w-]+)\/wp-content\/plugins\/)(\w*-?\w*-?\w*-?)/gi;
         this.plugins = response.match(expression_plugin);
+        this.plugins = this.plugins.filter((v, i, a) => a.indexOf(v) === i);
       },
       error => {
         switch (error.status) {
