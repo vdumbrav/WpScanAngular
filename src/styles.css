@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.m-15 {
+  margin: 15px auto;
+}
+
+.mat-select {
+  width: 250px;
+}
 
 button:focus {
   outline: none;
