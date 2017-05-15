@@ -27,6 +27,7 @@ export class SiteWpComponent implements OnInit {
   name_theme: any;
   chklist: any;
   hideElement: any;
+  hideSpinner: any;
   constructor(private fb: FormBuilder,
     private wpvulndbService: WpvulndbService
   ) { }
@@ -37,6 +38,7 @@ export class SiteWpComponent implements OnInit {
 
   buildForm() {
     this.hideElement = true;
+    this.hideSpinner = false;
     this.WpForm = this.fb.group({
       WP: ['']
     });
@@ -53,6 +55,9 @@ export class SiteWpComponent implements OnInit {
     this.wpvulndbService.checkURL(chkurl).subscribe(
       response => {
         this.chklist = response;
+        setTimeout(() => {
+          this.hideSpinner = true;
+        }, 3000);
       },
       error => console.log(error)
     );
@@ -98,8 +103,6 @@ export class SiteWpComponent implements OnInit {
               this.plugins_result1.push(error.status);
             });
         }
-        console.log(this.plugins_result1);
-        console.log(this.theme_result1);
       },
       error => {
         switch (error.status) {

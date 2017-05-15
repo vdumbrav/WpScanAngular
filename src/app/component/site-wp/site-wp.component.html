@@ -33,31 +33,39 @@
       <h4 class="invisible">invisible</h4>
       <hr class="invisible">
       <ul *ngFor="let plug of plugins_result1">
-        <ng-template [ngIf]="plug !== 404"><i class="zmdi zmdi-check"></i></ng-template>
-        <ng-template [ngIf]="plug === 404"><i class="zmdi zmdi-close"></i></ng-template>
+        <div [hidden]="!hideSpinner">
+          <ng-template [ngIf]="plug !== 404"><i class="zmdi zmdi-check"></i></ng-template>
+          <ng-template [ngIf]="plug === 404"><i class="zmdi zmdi-close"></i></ng-template>
+        </div>
+        <md-progress-spinner class="px25" mode="indeterminate" [hidden]="hideSpinner">
+        </md-progress-spinner>
       </ul>
     </div>
     <div class="col-sm-5">
       <h4 class="text-center">Plugin:</h4>
       <hr>
-      <ul *ngFor="let plugin of plugins">
+      <div *ngFor="let plugin of plugins">
         <p><a routerLink='/plugin/{{plugin}}'>{{plugin}}</a></p>
-      </ul>
+      </div>
     </div>
     <div class="col-sm-1">
       <h4 class="invisible">invisible</h4>
       <hr class="invisible">
       <ul *ngFor="let them of theme_result1">
-        <ng-template [ngIf]="them !== 404"><i class="zmdi zmdi-check"></i></ng-template>
-        <ng-template [ngIf]="them === 404"><i class="zmdi zmdi-close"></i></ng-template>
+        <div [hidden]="!hideSpinner">
+          <ng-template [ngIf]="them !== 404"><i class="zmdi zmdi-check"></i></ng-template>
+          <ng-template [ngIf]="them === 404"><i class="zmdi zmdi-close"></i></ng-template>
+        </div>
+        <md-progress-spinner class="px25" mode="indeterminate" [hidden]="hideSpinner">
+        </md-progress-spinner>
       </ul>
     </div>
     <div class="col-sm-5">
       <h4 class="text-center"> Theme:</h4>
       <hr>
-      <ul *ngFor="let theme of themes">
+      <div *ngFor="let theme of themes">
         <p><a routerLink='/theme/{{theme}}'>{{theme }}</a></p>
-      </ul>
+      </div>
     </div>
   </div>
 </div>

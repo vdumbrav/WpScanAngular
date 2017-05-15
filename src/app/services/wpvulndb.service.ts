@@ -41,7 +41,6 @@ export class WpvulndbService {
   }
   // ================================ERROR HANDLER=============================================
   private _errorHandler(error: Response) {
-    console.error(error);
     return Observable.throw(error || 'Server Error');
   }
 }

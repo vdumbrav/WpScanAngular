@@ -4,10 +4,9 @@ button:focus {
   outline: none;
 }
 
-
 .zmdi-close:before,
 .zmdi-check:before {
-  color: red;
+  color: #b71c1c;
   font-size: 25px;
   position: absolute;
   margin-top: -18px;
@@ -24,7 +23,7 @@ button:focus {
 }
 
 .zmdi-check:before {
-  color: green;
+  color: #558B2F;
 }
 
 .md-preloader {

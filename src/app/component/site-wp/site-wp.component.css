@@ -29,3 +29,12 @@ a span {
 .invisible {
   color: #fff;
 }
+
+.col-sm-12 ul {
+  -webkit-padding-start: 5px
+}
+
+.px25 {
+  width: 25px;
+  height: 25px;
+}
