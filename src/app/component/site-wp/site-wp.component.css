@@ -22,6 +22,10 @@ a span {
   list-style-type: none;
 }
 
-  .my-class {
-    background-color: yellow;
-  }
+.my-class {
+  background-color: yellow;
+}
+
+.invisible {
+  color: #fff;
+}

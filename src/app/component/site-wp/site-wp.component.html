@@ -16,7 +16,7 @@
       <br> Version: <a routerLink='/version/{{version_html | deletedots}}'><span>{{version_html}} </span></a>
     </div>
   </div>
-  <md-progress-bar [hidden]="hideElement" mode="query" *ngIf="chklist?.length < 1"></md-progress-bar>
+  <md-progress-bar [hidden]="hideElement" mode="indeterminate" *ngIf="chklist?.length < 1"></md-progress-bar>
   <div class="row mt-30">
     <div class="col-sm-12" *ngIf="chklist">
       <h4 class="text-center">Check:</h4>
@@ -29,18 +29,35 @@
     </div>
   </div>
   <div class="row mt-30" *ngIf="chklist">
-    <div class="col-sm-6">
+    <div class="col-sm-1">
+      <h4 class="invisible">invisible</h4>
+      <hr class="invisible">
+      <ul *ngFor="let plug of plugins_result1">
+        <ng-template [ngIf]="plug !== 404"><i class="zmdi zmdi-check"></i></ng-template>
+        <ng-template [ngIf]="plug === 404"><i class="zmdi zmdi-close"></i></ng-template>
+      </ul>
+    </div>
+    <div class="col-sm-5">
       <h4 class="text-center">Plugin:</h4>
       <hr>
       <ul *ngFor="let plugin of plugins">
-        <li>{{plugin}}</li>
+        <p><a routerLink='/plugin/{{plugin}}'>{{plugin}}</a></p>
       </ul>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-1">
+      <h4 class="invisible">invisible</h4>
+      <hr class="invisible">
+      <ul *ngFor="let them of theme_result1">
+        <ng-template [ngIf]="them !== 404"><i class="zmdi zmdi-check"></i></ng-template>
+        <ng-template [ngIf]="them === 404"><i class="zmdi zmdi-close"></i></ng-template>
+      </ul>
+    </div>
+    <div class="col-sm-5">
       <h4 class="text-center"> Theme:</h4>
       <hr>
       <ul *ngFor="let theme of themes">
-        <li>{{theme}}</li>
+        <p><a routerLink='/theme/{{theme}}'>{{theme }}</a></p>
       </ul>
     </div>
   </div>
+</div>

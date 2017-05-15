@@ -19,6 +19,9 @@ import { VersionComponent } from './component/version/version.component';
 import { VersionNameComponent } from './component/version-name/version-name.component';
 import { RemoveurlPipe } from './pipes/removeurl.pipe';
 import { MdProgressSpinnerModule } from '@angular/material';
+import { RemoveurlpluginPipe } from './pipes/removeurlplugin.pipe';
+import { RemoveurlthemePipe } from './pipes/removeurltheme.pipe';
+import { MergepipePipe } from './pipes/mergepipe.pipe';
 
 
 const appRoutes: Routes = [
@@ -51,7 +54,10 @@ const appRoutes: Routes = [
     DeletedotsPipe,
     VersionComponent,
     VersionNameComponent,
-    RemoveurlPipe
+    RemoveurlPipe,
+    RemoveurlpluginPipe,
+    RemoveurlthemePipe,
+    MergepipePipe
   ],
   imports: [
     BrowserModule,
