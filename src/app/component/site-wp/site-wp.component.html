@@ -3,12 +3,15 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
-      <form class="example-form" [formGroup]="WpForm" (ngSubmit)="onWpSubmit()">
-        <md-input-container class="example-full-width">
-          <input mdInput placeholder="WP-url" formControlName="WP">
-        </md-input-container>
-        <button md-raised-button type="submit">GET </button>
-      </form>
+      <div class="inline">
+        <form class="inline" [formGroup]="WpForm" (ngSubmit)="onWpSubmit()">
+          <md-input-container class="example-full-width">
+            <input mdInput placeholder="WP-url" formControlName="WP">
+          </md-input-container>
+          <button md-raised-button type="submit">GET</button>
+          <button md-raised-button  type="button" (click)="empty()"><i class="zmdi zmdi-search"></i> New scan</button>
+        </form>
+      </div>
     </div>
     <div class="col-sm-6" *ngIf="chklist">
       <h4 class="text-center">Result:</h4>

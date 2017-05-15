@@ -38,3 +38,7 @@ a span {
   width: 25px;
   height: 25px;
 }
+
+.inline {
+  display: inline-block;
+}

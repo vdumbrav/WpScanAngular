@@ -9,6 +9,14 @@
         </md-input-container>
         <button md-raised-button type="submit">GET THEME</button>
       </form>
+      <form [formGroup]="versionForm" (ngSubmit)="onVersionubmit()">
+        <md-select placeholder="Top 15 Themes" formControlName="theme_val" name="theme_val">
+          <md-option *ngFor="let them of theme_val" [value]="them.value">
+            {{them.viewValue}}
+          </md-option>
+        </md-select>
+        <button md-raised-button type="submit">View Theme</button>
+      </form>
     </div>
     <div class="col-sm-6" *ngIf="latest_version?.length > 0">
       Result:

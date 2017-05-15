@@ -22,6 +22,7 @@ import { MdProgressSpinnerModule } from '@angular/material';
 import { RemoveurlpluginPipe } from './pipes/removeurlplugin.pipe';
 import { RemoveurlthemePipe } from './pipes/removeurltheme.pipe';
 import { MergepipePipe } from './pipes/mergepipe.pipe';
+import { InfoVultypeComponent } from './info-vultype/info-vultype.component';
 
 
 const appRoutes: Routes = [
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
   { path: 'theme/:name', component: ThemeNameComponent },
   { path: 'version', component: VersionComponent },
   { path: 'version/:name', component: VersionNameComponent },
+  { path: 'info_vuln-type', component: InfoVultypeComponent },
 ];
 
 
@@ -57,7 +59,8 @@ const appRoutes: Routes = [
     RemoveurlPipe,
     RemoveurlpluginPipe,
     RemoveurlthemePipe,
-    MergepipePipe
+    MergepipePipe,
+    InfoVultypeComponent
   ],
   imports: [
     BrowserModule,

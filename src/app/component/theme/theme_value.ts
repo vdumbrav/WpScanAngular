@@ -1,0 +1,17 @@
+export const theme_val = [
+  { viewValue: 'Twenty Seventeen', value: 'twentyseventeen' },
+  { viewValue: 'RokoPhoto Lite', value: 'rokophoto-lite' },
+  { viewValue: 'Realistic', value: 'realistic' },
+  { viewValue: 'Redify', value: 'redify' },
+  { viewValue: 'Vito', value: 'vito' },
+  { viewValue: 'Twenty Eleven', value: 'twentyeleven' },
+  { viewValue: 'One Edge', value: 'one-edge' },
+  { viewValue: 'Amadeus', value: 'amadeus' },
+  { viewValue: 'Azera Shop', value: 'azera-shop' },
+  { viewValue: 'Magazine News', value: 'magazine-news' },
+  { viewValue: 'Customizr', value: 'customizr' },
+  { viewValue: 'ElitePress', value: 'elitepress' },
+  { viewValue: 'metro-pirate', value: 'metro-pirate' },
+  { viewValue: 'Konnichi An', value: 'konnichi-an' },
+  { viewValue: 'Anarcho Notepad', value: 'anarcho-notepad' },
+];

@@ -9,6 +9,14 @@
         </md-input-container>
         <button md-raised-button type="submit">GET PLUGIN</button>
       </form>
+      <form [formGroup]="versionForm" (ngSubmit)="onVersionubmit()">
+        <md-select placeholder="Top 10 Plugins" formControlName="plugin_val" name="plugin_val">
+          <md-option *ngFor="let plug of plugin_val" [value]="plug.value">
+            {{plug.viewValue}}
+          </md-option>
+        </md-select>
+        <button md-raised-button type="submit">View Plugin</button>
+      </form>
     </div>
     <div class="col-sm-6" *ngIf="latest_version?.length > 0">
       Result:

@@ -43,6 +43,12 @@ export class SiteWpComponent implements OnInit {
       WP: ['']
     });
   }
+  empty() {
+    this.chklist = '';
+    this.hideElement = true;
+    this.hideSpinner = false;
+    this.WpForm.reset();
+  }
 
   onWpSubmit() {
     this.plugins_result1 = new Array();
