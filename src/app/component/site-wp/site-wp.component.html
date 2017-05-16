@@ -19,7 +19,7 @@
       <br> Version: <a routerLink='/version/{{version_html | deletedots}}'><span>{{version_html}} </span></a>
     </div>
   </div>
-  <md-progress-bar [hidden]="hideElement" mode="indeterminate" *ngIf="chklist?.length < 1"></md-progress-bar>
+  <md-progress-bar class="mt-50" [hidden]="hideElement" mode="indeterminate" *ngIf="chklist?.length < 1"></md-progress-bar>
   <div class="row mt-30">
     <div class="col-sm-12" *ngIf="chklist">
       <h4 class="text-center">Check:</h4>
