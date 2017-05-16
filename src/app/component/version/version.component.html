@@ -38,9 +38,8 @@
     <tbody>
       <tr *ngFor="let vulner of vulnerabilities">
         <td>{{vulner.title}}</td>
-        <td>{{vulner.vuln_type}}</td>
+        <td><a [routerLink]="['/info_vuln-type']" fragment="{{vulner.vuln_type}}">{{vulner.vuln_type}}</a></td>
         <span class="span-td" *ngFor="let link of vulner.references.url"><a href="{{link}}"  target="_blank">link </a></span>
-
         <td>
           {{vulner.created_at | date}}</td>
         <td>
