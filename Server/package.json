@@ -14,6 +14,6 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.2",
-    "wpcheck": "^1.1.2"
+    "wpcheck": "https://github.com/vdumbrav/wp-check_fork"
   }
 }

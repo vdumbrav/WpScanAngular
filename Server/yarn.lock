@@ -816,9 +816,9 @@ wordwrap@~0.0.2:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.3.tgz#a3d5da6cd5c0bc0008d37234bbaf1bed63059107"
 
-wpcheck@^1.1.2:
+"wpcheck@https://github.com/vdumbrav/wp-check_fork":
   version "1.1.2"
-  resolved "https://registry.yarnpkg.com/wpcheck/-/wpcheck-1.1.2.tgz#bd3f6e3ea916649318f285e69c02194439c44f06"
+  resolved "https://github.com/vdumbrav/wp-check_fork#629273aa2b69e7ba0b23e9f8ee4e59f3ea282a15"
   dependencies:
     colors "^1.1.2"
     minimist "^1.2.0"
