@@ -8,8 +8,13 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.json",
+    "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/",
+    "typedoc": "typedoc"
   },
+  "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/",
+  "typedoc": "typedoc",
   "private": true,
   "dependencies": {
     "@angular/animations": "^4.1.1",
